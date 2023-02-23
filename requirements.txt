@@ -8,6 +8,7 @@ expertai-nlapi==2.5.0
 Faker==17.0.0
 Flask==2.2.2
 Flask-WTF==1.1.1
+gunicorn==20.1.0
 idna==3.4
 itsdangerous==2.1.2
 Jinja2==3.1.2
