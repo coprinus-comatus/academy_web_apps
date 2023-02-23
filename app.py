@@ -50,5 +50,5 @@ def ml_toybox():
 def rules_toybox():
     return render_template("rules_toybox.html")
 
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()
