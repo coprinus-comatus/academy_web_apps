@@ -1,0 +1,97 @@
+@font-face {
+    font-family: Nunito;
+    src: url("./fonts/Nunito-Variable.ttf");
+}
+
+html {
+    /* # background-color: #bfd0ee;   */
+    text-align: center;
+    font-size: 16px;
+    font-family: Nunito, Montserrat, 'Arial', sans-serif;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 80px;
+    margin-left: 80px;
+  }
+
+ul {
+    list-style-type: none;
+}
+
+hr {
+    width:30%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-top: 0.5px dotted grey;
+}
+
+td.emails_to_process {
+    /* background-color: lightblue; */
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.1;
+    text-align: justify;
+    width: 28%;
+    padding: 30px;
+    margin: 5px;
+    display: inline-block;
+    /* display: inline-table; */
+    /* display: inline-block; */
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* border: 1px dotted lightslategray; */
+    -moz-box-shadow: 0 0 10px #777777; 
+    -webkit-box-shadow: 0 0 10px #777777; 
+    box-shadow: 0 0 10px #777777;
+}
+
+/* td.processed_email {
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.1;
+    text-align: justify;
+    padding: 30px;
+    display: inline-block;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+} */
+
+td.custom_output {
+    display: inline-block;
+    margin: 30px;
+    padding: 20px;
+    /* border: 1px dotted black; */
+    -moz-box-shadow: inset 0 0 10px #777777; 
+    -webkit-box-shadow: inset 0 0 10px #777777; 
+    box-shadow: inset 0 0 10px #777777;
+}
+
+/* p.emails_to_process {
+    max-height: 300px;
+    overflow: scroll;
+} */
+
+/* tbody.emails_to_process {
+    display: block;
+    max-height: 300px;
+    overflow: scroll;
+} */
+
+table {
+    margin: 10px auto 10px auto;
+    /* border: solid black; */
+    width: 90%;
+}
+
+/* td {
+    border: solid gray;
+} */
+
+table.output_data {
+    border: dotted 1px black;
+    /* background-color: antiquewhite; */
+    /* margin: 30px; */
+    padding: 20px;
+}

@@ -1,0 +1,26 @@
+From:logan.cole@concureworkplace.com
+
+To:derek.kim@enron.com
+
+Subject:«Concur Expense Document«- Stamford Trip
+
+Cc:
+
+Bcc:
+
+Date:Fri, 1 Feb 2002 06:06:52 -0800 (PST)
+
+The following expense report is ready for approval:
+
+Employee Name: Kevin M. Wallace
+
+Status last changed by: Kevin M. Wallace
+
+Expense Report Name: Stamford Trip
+
+Report Total: $303.10
+
+Amount Due Employee: $303.10
+
+To approve this expense report, click on the following link for Concur Expense.
+

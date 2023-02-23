@@ -1,0 +1,26 @@
+From:margaret.turner@concureworkplace.com
+
+To:sean.rodriguez@enron.com
+
+Subject:«Concur Expense Document«- White - Misc. Cell / Trip
+
+Cc:
+
+Bcc:
+
+Date:Sat, 19 Nov 0001 07:46:12 -0800 (PST)
+
+The following expense report is ready for approval:
+
+Employee Name: Elizabeth A. White
+
+Status last changed by: Automated Administrator
+
+Expense Report Name: White - Misc. Cell / Trip
+
+Report Total: $1,541.07
+
+Amount Due Employee: $1,541.07
+
+To approve this expense report, click on the following link for Concur Expense.
+

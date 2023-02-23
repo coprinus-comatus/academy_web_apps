@@ -1,0 +1,117 @@
+{% extends "base.html"  %}
+
+{% block content %}
+    <h1>Academy Workflow Tester</h1>
+    {% if analysis_output != "" %}
+        <h2>Output data</h2>
+        <table class="output_data">
+            <tr>
+                <td class="custom_output">
+                    {% for category in analysis_output['categorization_model']['categories'] %}
+                        <h2>{{ category['label'] }}</h2>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td class="custom_output">
+                    {% for template, extractions in extraction_dictionary.items() %}
+                        <p><h3>{{ template }}</h3></p>
+                        {% for extraction in extractions %}
+                            {% if extraction[0] == "" %}
+                                <p>{{ extraction[1] }}</p>
+                            {% else %}
+                                <p><strong>{{ extraction[0] }}</strong>: {{ extraction[1] }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </td>
+                <td colspan="3" class="emails_to_process">
+                    <p>
+                        {{ analysis_output['categorization_model']['content'] }}
+                    </p>
+                </td>
+                <td class="custom_output">
+                    {% for category in analysis_output["behavioral_traits"]["categories"] %}
+                            <p><strong>{{ category["label"] }}</strong>: {{ category["score"] }}</p>
+                    {% endfor %}
+                </td>
+            </tr>
+        </table>
+        {% if show_sem_analysis == True %}
+            <table>
+                <tr>
+                    <td colspan="3" class="custom_output">
+                        <h2>Semantic Analysis</h2>
+                        <p>
+                            <h3>Tokens</h3>
+                            {% for token in analysis_output['behavioral_traits']['tokens'] %}
+                                <code>{{ token['lemma'] }}</code> <sub>[{{ token['type'] }}]</sub> · 
+                            {% endfor %}
+                        </p>
+                        <p>
+                            <h3>Main Lemmas</h3>
+                            {% for main_lemma in analysis_output['behavioral_traits']['mainLemmas'] %}
+                                <code>{{ main_lemma['value'] }}</code> (Score: {{ main_lemma['score'] }}) · 
+                            {% endfor %}
+                        </p>
+                        <p>
+                            <h3>Main Syncons</h3>
+                            {% for main_syncon in analysis_output['behavioral_traits']['mainSyncons'] %}
+                                <code>{{ main_syncon['lemma'] }}</code> ({{ main_syncon['syncon'] }}) · 
+                            {% endfor %}
+                        </p>
+                        <p>    
+                            <h3>Entities</h3>
+                            {% for entity in analysis_output['behavioral_traits']['entities'] %}
+                                <code>{{ entity['lemma'] }}</code> <sub>[{{ entity['type'] }}]</sub> · 
+                            {% endfor %}
+                        </p>
+                        <p>
+                            <h3>Topics</h3>
+                            {% for topic in analysis_output['behavioral_traits']['topics'] %}
+                                {% if topic["winner"] == True %}
+                                    {{ topic["label"].title() }} (Score: {{ topic["score"] }}) · 
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        {% endif %}
+        <hr/>
+    {% endif %}
+    <h2>Choose an Input Document</h2>
+    <p>
+        <a href="/email_analysis">Refresh Random Selection</a>
+    </p>
+    <table>
+        <tbody class="emails_to_process">
+            <tr>
+                {% for email_text in random_emails.values() %}
+                    <td class="emails_to_process">
+                        {{ email_text }}
+                    </td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <form method="POST">
+            <tr>
+                    {% for button in email_choice_form.email_buttons %}
+                        <td>{{ button.label }}</br>{{  button }}</td>
+                    {% endfor %}
+            </tr>
+            <tr>
+                <td>
+                </td>
+                <td>
+                        <p>{{ email_choice_form.sem_analysis_check.label }}  {{ email_choice_form.sem_analysis_check() }}</p>
+                        <p>{{ email_choice_form.submit() }}</p>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </form>
+    </table>
+{% endblock %}
