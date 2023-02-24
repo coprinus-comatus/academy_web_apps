@@ -36,6 +36,9 @@
                     {% endfor %}
                 </td>
             </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
         </table>
         {% if show_sem_analysis == True %}
             <table>
@@ -85,8 +88,8 @@
         <a href="/email_analysis">Refresh Random Selection</a>
     </p>
     <table>
-        <tbody class="emails_to_process">
-            <tr>
+        <tbody>
+            <tr class="emails_to_process">
                 {% for email_text in random_emails.values() %}
                     <td class="emails_to_process">
                         {{ email_text }}
@@ -99,14 +102,14 @@
         <form method="POST">
             <tr>
                     {% for button in email_choice_form.email_buttons %}
-                        <td>{{ button.label }}</br>{{  button }}</td>
+                        <td class="email_choice"><p>{{ button.label }}<br/>{{  button }}</p></td>
                     {% endfor %}
             </tr>
             <tr>
                 <td>
                 </td>
                 <td>
-                        <p>{{ email_choice_form.sem_analysis_check.label }}  {{ email_choice_form.sem_analysis_check() }}</p>
+                        <p>{{ email_choice_form.sem_analysis_check.label }} {{ email_choice_form.sem_analysis_check() }}</p>
                         <p>{{ email_choice_form.submit() }}</p>
                 </td>
                 <td>
