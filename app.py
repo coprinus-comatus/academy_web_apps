@@ -5,7 +5,6 @@ from email_analysis_helper import EmailSelectForm, pull_random_docs, store_email
 # scrape_all_emails, make_extraction_dictionary, process_document # , process_document, make_extraction_dictionary, scrape_all_emails
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = "trailblazer"
 
 ## Home page
 @app.route('/')
