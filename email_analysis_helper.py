@@ -17,20 +17,20 @@ class EmailSelectForm(FlaskForm):
     submit = SubmitField("Process email")
 
 
+# # Data to send API request
+# def read_api_data(api_data_name = "api_data.json"):
+#     load_dotenv()
+#     api_key = str(os.environ["API_KEY"])
+#     api_endpoint = str(os.environ["API_WORKFLOW_ENDPOINT"])
+#     return api_key, api_endpoint
+
 # Data to send API request
 def read_api_data(api_data_name = "api_data.json"):
-    load_dotenv()
-    api_key = str(os.environ["API_KEY"])
-    api_endpoint = str(os.environ["API_WORKFLOW_ENDPOINT"])
+    with open(api_data_name, "r") as api_json:
+        api_data = json.load(api_json)
+    api_key = api_data["api_key"]
+    api_endpoint = api_data["api_endpoint"]
     return api_key, api_endpoint
-
-## Data to send API request
-# def read_api_data(api_data_name = "api_data.json"):
-#     with open(api_data_name, "r") as api_json:
-#         api_data = json.load(api_json)
-#     api_key = api_data["api_key"]
-#     api_endpoint = api_data["api_endpoint"]
-#     return api_key, api_endpoint
 
 ## Convert to Base64
 def encode_file_to_base64(file_path):

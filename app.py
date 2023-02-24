@@ -1,15 +1,24 @@
-import os
+import json
+# import os
 from flask import Flask, render_template, request
 # from flask_wtf import FlaskForm
 # from wtforms import StringField, SubmitField
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from email_analysis_helper import EmailSelectForm, pull_random_docs, store_emails, read_emails, process_document, make_extraction_dictionary
 # scrape_all_emails, make_extraction_dictionary, process_document # , process_document, make_extraction_dictionary, scrape_all_emails
 
 app = Flask(__name__)
 
-load_dotenv()
-app.config['SECRET_KEY'] = str(os.environ["SECRET_KEY"])
+# load_dotenv()
+# app.config['SECRET_KEY'] = str(os.environ["SECRET_KEY"])
+
+def read_secret_key(secret_key_name = "api_data.json"):
+    with open(secret_key_name, "r") as key_json:
+        key_data = json.load(key_json)
+    secret_key = key_data["secret_key"]
+    return secret_key
+
+app.config['SECRET_KEY'] = read_secret_key()
 
 ## Home page
 @app.route('/')
