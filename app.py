@@ -1,10 +1,15 @@
+import os
 from flask import Flask, render_template, request
 # from flask_wtf import FlaskForm
 # from wtforms import StringField, SubmitField
+from dotenv import load_dotenv
 from email_analysis_helper import EmailSelectForm, pull_random_docs, store_emails, read_emails, process_document, make_extraction_dictionary
 # scrape_all_emails, make_extraction_dictionary, process_document # , process_document, make_extraction_dictionary, scrape_all_emails
 
 app = Flask(__name__)
+
+load_dotenv()
+app.config['SECRET_KEY'] = str(os.environ["SECRET_KEY"])
 
 ## Home page
 @app.route('/')
